@@ -1,0 +1,29 @@
+#!/usr/bin/env groovy
+
+podTemplate(
+    inheritFrom: 'integration',
+    label: 'integration-app-mariadb-10-4',
+    containers: [
+        containerTemplate(
+            name: 'debug',
+            image: 'debian:10-slim',
+            alwaysPullImage: false,
+            ttyEnabled: true,
+            command: 'cat'
+        ),
+        containerTemplate(
+            name: 'mariadb',
+            image: 'mariadb:10.4',
+            alwaysPullImage: false,
+            envVars: [
+                envVar(key: 'MYSQL_ALLOW_EMPTY_PASSWORD', value: 'yes')
+            ]
+        ),
+    ]
+) {
+    node('integration-app-mariadb-10-4') {
+        stage('¯\\_(ツ)_/¯') {
+            echo 'Because testing is doubting...'
+        }
+    }
+}
