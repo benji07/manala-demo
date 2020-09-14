@@ -45,6 +45,7 @@ system:
           - xml
           # App
           - mysql
+          - sqlite3
         configs:
           - file: app_opcache.ini
             template: configs/app_opcache.dev.j2

@@ -265,6 +265,7 @@ system:
           - mbstring
           - xml
           - mysql
+          - sqlite3
         manala_php_configs_exclusive: true
         manala_php_configs:
           - file: 50-xdebug.ini
